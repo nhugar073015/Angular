@@ -1,0 +1,36 @@
+<div class="row">
+    <div class="col-sm-5 container">
+        <h4 class="text-center">Edit Product</h4>
+        <form #frm="ngForm" (ngSubmit)="updateProd(frm)">
+            <div class="form-group">
+                <label>Product ID:</label>
+                <input type="text" class="form-control" name="prodId" placeholder="Enter Product ID" [ngModel]="product?.prodId" />
+            </div>
+            <div class="form-group">
+                <label>Product Name:</label>
+                <input type="text" class="form-control" name="prodName" placeholder="Enter Product Name" [ngModel]="product?.prodName" />
+            </div>
+
+            <div class="form-group">
+                <label>Product Price:</label>
+                <input type="text" class="form-control" name="prodPrice" placeholder="Enter Product Price" [ngModel]="product?.prodPrice" />
+            </div>
+            <div class="form-group">
+                <label>Product Description:</label>
+                <input type="text" class="form-control" name="prodDesc" placeholder="Enter Product Description" [ngModel]="product?.prodDesc" />
+            </div>
+      
+            <div class="form-group">
+                <label>Product Rating:</label>
+               <select name="prodRating" class="form-control" [ngModel]="product?.prodRating">
+                   <option value="">Select Rating</option>
+                   <option *ngFor="let rate of ratings" [value]="rate">{{ rate }}</option>
+               </select>
+            </div>
+            <div class="form-group">
+               <button type="submit" class="btn btn-primary">Update Product</button>
+            </div>
+        </form>
+        <!-- <p>{{ frm.value | json }}</p> -->
+    </div>
+</div>
